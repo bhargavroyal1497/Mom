@@ -45,12 +45,17 @@
         }
 
         .hero{
-            min-height:100vh;
-            display:grid;
-            grid-template-columns:1fr 1fr;
+            min-height:85vh;
+            display:flex;
             align-items:center;
-            gap:50px;
+            justify-content:center;
             padding:80px 8%;
+            text-align:center;
+        }
+
+        .hero-text{
+            max-width:850px;
+            margin:auto;
         }
 
         .hero-text h1{
@@ -74,35 +79,11 @@
         }
 
         .hero-text p{
-            max-width:650px;
+            max-width:760px;
+            margin:auto;
             font-size:1.15rem;
             line-height:1.9;
             color:#f7eaff;
-        }
-
-        .image-aura{
-            position:relative;
-            width:min(470px,90vw);
-            aspect-ratio:3/4;
-            margin:auto;
-            border-radius:45px;
-            padding:14px;
-            background:linear-gradient(135deg,#ffd700,#ff78bd,#8f4cff,#ffd700);
-            box-shadow:0 30px 90px rgba(0,0,0,.5),0 0 60px rgba(255,215,0,.28);
-            animation:glow 5s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow{
-            from{filter:drop-shadow(0 0 12px rgba(255,215,0,.4))}
-            to{filter:drop-shadow(0 0 35px rgba(255,120,189,.7))}
-        }
-
-        .mom-photo{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            display:block;
-            border-radius:35px;
         }
 
         .gift-section,.letter-section,.quotes-section{
@@ -172,10 +153,6 @@
             color:#f8eaff;
         }
 
-        /* ==========================
-           MEMORY SECTION
-        ========================== */
-
         .memory-section{
             padding:100px 20px;
             text-align:center;
@@ -197,10 +174,10 @@
         }
 
         .memory-grid{
-            max-width:1200px;
+            max-width:1050px;
             margin:auto;
             display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+            grid-template-columns:repeat(2,minmax(300px,1fr));
             gap:40px;
         }
 
@@ -219,8 +196,12 @@
 
         .memory-card img{
             width:100%;
-            height:450px;
-            object-fit:cover;
+            height:clamp(460px,58vw,620px);
+            display:block;
+            object-fit:contain;
+            object-position:center;
+            padding:14px;
+            background:linear-gradient(145deg,rgba(255,215,0,.18),rgba(255,120,189,.14));
         }
 
         .memory-content{
@@ -236,10 +217,6 @@
         .memory-content p{
             line-height:1.9;
         }
-
-        /* ==========================
-           FINAL MESSAGE
-        ========================== */
 
         .final-message{
             padding:100px 20px 40px;
@@ -274,36 +251,10 @@
             font-size:2rem;
         }
 
-        /* ==========================
-           FINAL PHOTO
-        ========================== */
-
-        .final-photo{
-            padding:60px 20px 100px;
-            text-align:center;
-        }
-
-        .final-photo img{
-            width:100%;
-            max-width:700px;
-            border-radius:30px;
-            box-shadow:0 20px 60px rgba(0,0,0,.45);
-            transition:.4s;
-        }
-
-        .final-photo img:hover{
-            transform:scale(1.02);
-        }
-
         @media(max-width:650px){
             .hero{
-                grid-template-columns:1fr;
+                min-height:75vh;
                 padding:60px 22px;
-                text-align:center;
-            }
-
-            .image-aura{
-                order:-1;
             }
 
             .memory-grid{
@@ -311,7 +262,8 @@
             }
 
             .memory-card img{
-                height:360px;
+                height:460px;
+                padding:10px;
             }
 
             .letter-card,.quote-card,.final-message-card{
@@ -336,16 +288,12 @@
     <section class="hero">
         <div class="hero-text">
             <h1>Happy Birthday</h1>
-            <h2>My Beautiful Mom ❤️</h2>
+            <h2>My Queen Mom 👑❤️</h2>
             <p>
-                Today is a celebration of the woman whose love made every ordinary day feel safe,
+                Today is a celebration of the queen whose love made every ordinary day feel safe,
                 hopeful, and full of possibility. You are my first home, my strongest blessing,
                 and the reason I keep believing in brighter tomorrows.
             </p>
-        </div>
-
-        <div class="image-aura">
-            <img src="mom-portrait.jpg" alt="My Beautiful Mom" class="mom-photo">
         </div>
     </section>
 
@@ -378,9 +326,9 @@
             every dream I chase is powered by your unwavering belief in me.
         </p>
 
-        <div class="memory-grid">
+        <div class="memory-grid" aria-label="Mom memory photo gallery">
             <div class="memory-card">
-                <img src="mom-saree.jpg" alt="Mom in Saree">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-mom-photo="blackDress" alt="Mom in a black embroidered dress">
 
                 <div class="memory-content">
                     <h3>Strength & Grace</h3>
@@ -395,7 +343,7 @@
             </div>
 
             <div class="memory-card">
-                <img src="mom-portrait.jpg" alt="Mom Portrait">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-mom-photo="tealSaree" alt="Mom in a teal saree">
 
                 <div class="memory-content">
                     <h3>My Greatest Supporter</h3>
@@ -442,12 +390,9 @@
         </div>
     </section>
 
-    <section class="final-photo">
-        <img src="mom-saree.jpg" alt="Mom">
-    </section>
-
     <footer>
         Made with endless love for Mom ❤️
     </footer>
+    <script src="photos.js" defer></script>
 </body>
 </html>
